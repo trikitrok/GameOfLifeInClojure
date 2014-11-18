@@ -9,3 +9,6 @@
           y (range (dec y-cell) (+ y-cell 2)) 
           :when (not (and (= x x-cell) (= y y-cell)))] 
       [x y])))
+
+(defn num-alive-neighbors [cell living-cells]
+  1)
