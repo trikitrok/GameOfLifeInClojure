@@ -3,9 +3,9 @@
 (defn is-alive? [cell living-cells]
   (= cell (some #{cell} living-cells)))
 
-(defn neighbors [cell]
+(defn neighbors [[x-cell y-cell]]
   (set 
-    (for [x (range 3) 
-          y (range 3) 
-          :when (not (and (= x 1) (= y 1)))] 
+    (for [x (range (dec x-cell) (+ x-cell 2)) 
+          y (range (dec y-cell) (+ y-cell 2)) 
+          :when (not (and (= x x-cell) (= y y-cell)))] 
       [x y])))
