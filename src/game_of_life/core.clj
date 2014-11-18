@@ -19,3 +19,6 @@
 
 (defn will-come-to-life? [num-alive-neighbors]
   (= num-alive-neighbors 3))
+
+(defn candidates [living-cells]
+  #{})

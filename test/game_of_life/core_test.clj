@@ -42,4 +42,10 @@
     (fact "a cell with the right amount of living neighbors will come to life"
           (will-come-to-life? 3) => true
           (will-come-to-life? 4) => false
-          (will-come-to-life? 2) => false)))
+          (will-come-to-life? 2) => false))
+  
+  (facts
+    "about candidates to come to life in next generation"
+    
+    (fact "the candidates are the living cells neighbors"
+          (candidates []) => #{})))
