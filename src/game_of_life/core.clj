@@ -1,4 +1,5 @@
-(ns game-of-life.core)
+(ns game-of-life.core
+  (:require [clojure.set :only unio]))
 
 (defn is-alive? [cell living-cells]
   (= cell (some #{cell} living-cells)))
@@ -21,4 +22,4 @@
   (= num-alive-neighbors 3))
 
 (defn candidates [living-cells]
-  #{})
+   (reduce clojure.set/union (map neighbors living-cells)))
