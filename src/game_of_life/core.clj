@@ -14,4 +14,5 @@
   (count (filter (neighbors cell) living-cells)))
 
 (defn will-survive? [num-alive-neighbors]
-  (= num-alive-neighbors 3))
+  (or (= num-alive-neighbors 3)
+      (= num-alive-neighbors 2)))
