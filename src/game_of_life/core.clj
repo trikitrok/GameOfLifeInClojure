@@ -18,7 +18,7 @@
 (defn will-be-a-cell? [num-neighbors-being-a-cell]
   (= num-neighbors-being-a-cell 3))
 
-(defn candidates-to-be-cell [cells]
+(defn candidates-to-be-a-cell [cells]
   (clojure.set/difference 
     (reduce clojure.set/union 
             (map neighbors cells))
@@ -36,7 +36,7 @@
     (filter 
       #(will-be-a-cell?
          (num-neighbors-being-a-cell % cells))
-      (candidates-to-be-cell cells))))
+      (candidates-to-be-a-cell cells))))
 
 (defn next-cells [cells]
   (clojure.set/union 

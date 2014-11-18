@@ -39,11 +39,11 @@
     "about candidates to be a cell in next generation"
     
     (fact "the candidates are the cells neighbors"
-          (candidates-to-be-cell []) => #{}
-          (candidates-to-be-cell [[1 1]]) => #{[0 0] [0 1] [0 2] [1 0] [1 2] [2 0] [2 1] [2 2]})
+          (candidates-to-be-a-cell []) => #{}
+          (candidates-to-be-a-cell [[1 1]]) => #{[0 0] [0 1] [0 2] [1 0] [1 2] [2 0] [2 1] [2 2]})
     
     (fact "no cells are included in the candidates"
-          (candidates-to-be-cell [[1 1] [0 0]]) => #{[0 1] [0 2] [1 0] [1 2] [2 0] [2 1] [2 2] 
+          (candidates-to-be-a-cell [[1 1] [0 0]]) => #{[0 1] [0 2] [1 0] [1 2] [2 0] [2 1] [2 2] 
                                                           [-1 -1] [-1 0] [-1 1] [0 -1] [1 -1] }))
   
   (facts 
