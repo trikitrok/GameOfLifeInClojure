@@ -6,3 +6,6 @@
 (for [x (range 3) y (range 3) when (and (not= x 1) (not= y 1))] [x y])
 (for [x (range 3) y (range 3) :when (and (not= x 1) (not= y 1))] [x y])
 (for [x (range 3) y (range 3) :when (not (and (= x 1) (= y 1)))] [x y])
+(filter #{[1 2] [4 5]} [[1 2] [3 50] [4 5]])
+(filter #{[1 2]} [[1 2] [3 50] [4 5]])
+(count (filter #{[1 2]} [[1 2] [3 50] [4 5]]))

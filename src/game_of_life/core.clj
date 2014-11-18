@@ -11,4 +11,4 @@
       [x y])))
 
 (defn num-alive-neighbors [cell living-cells]
-  1)
+  (count (filter (neighbors cell) living-cells)))
