@@ -26,3 +26,6 @@
     (reduce clojure.set/union 
             (map neighbors living-cells))
     (set living-cells)))
+
+(defn surviving-cells [living-cells]
+  [])

@@ -53,4 +53,10 @@
     
     (fact "no living cells are included in the candidates"
           (candidates-to-come-to-life [[1 1] [0 0]]) => #{[0 1] [0 2] [1 0] [1 2] [2 0] [2 1] [2 2] 
-                                                          [-1 -1] [-1 0] [-1 1] [0 -1] [1 -1] })))
+                                                          [-1 -1] [-1 0] [-1 1] [0 -1] [1 -1] }))
+  
+  (facts 
+    "about surviving cells in next generation"
+    
+    (fact "the surviving cells are the living cells with enoug neighbors"
+          (surviving-cells []) => [])))
