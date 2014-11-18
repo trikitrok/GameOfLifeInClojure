@@ -40,3 +40,8 @@
       #(will-come-to-life?
          (num-alive-neighbors % living-cells))
       (candidates-to-come-to-life living-cells))))
+
+(defn next-cells [living-cells]
+  (clojure.set/union 
+    (surviving-cells living-cells)
+    (come-to-life-cells living-cells)))

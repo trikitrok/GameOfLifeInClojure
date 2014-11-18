@@ -74,4 +74,11 @@
     (fact "the cells that come to life are neighbors of the living cells with enough neighbors"
           (come-to-life-cells []) => #{}
           (come-to-life-cells [[2 2] [0 0] [1 1] [-1 -1] [1 0]]) => #{[0 1] [0 -1] [2 1]}
-          (come-to-life-cells [[0 1] [1 0] [1 1]]) => #{[0 0]})))
+          (come-to-life-cells [[0 1] [1 0] [1 1]]) => #{[0 0]}))
+ (facts 
+    "about living cells in next generation"
+    
+    (fact "the cells in next generation are the union of the surviving cells and the cells that come to life"
+          (next-cells []) => #{}
+          (next-cells [[2 2] [0 0] [1 1] [-1 -1] [1 0]]) => #{[0 1] [0 -1] [2 1] [1 0] [0 0] [1 1]}
+          (next-cells [[0 1] [1 0] [1 1]]) => #{[0 0] [0 1] [1 0] [1 1]})))
