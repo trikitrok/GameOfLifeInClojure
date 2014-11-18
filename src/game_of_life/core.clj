@@ -12,3 +12,6 @@
 
 (defn num-alive-neighbors [cell living-cells]
   (count (filter (neighbors cell) living-cells)))
+
+(defn will-survive? [num-alive-neighbors]
+  true)
