@@ -58,5 +58,6 @@
   (facts 
     "about surviving cells in next generation"
     
-    (fact "the surviving cells are the living cells with enoug neighbors"
-          (surviving-cells []) => [])))
+    (fact "the surviving cells are the living cells with enough neighbors"
+          (surviving-cells []) => []
+          (surviving-cells [[2 2][0 0] [1 1] [-1 -1]]) => [[0 0] [1 1]])))

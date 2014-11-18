@@ -28,4 +28,5 @@
     (set living-cells)))
 
 (defn surviving-cells [living-cells]
-  [])
+  (filter #(will-survive? 
+             (num-alive-neighbors % living-cells)) living-cells))
