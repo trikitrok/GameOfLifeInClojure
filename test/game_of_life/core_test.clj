@@ -20,6 +20,14 @@
        
        (fact "a cell with enough living neighbors will survive"
              (will-survive? 3) => true
-             (will-survive? 1) => false
              (will-survive? 2) => true)
+       
+       (fact "a cell with too few living neighbors will not survive"
+             (will-survive? 1) => false)
+        
+       (fact "a cell with too many living neighbors will not survive"
+             (will-survive? 4) => false)
+       
        )
+
+
