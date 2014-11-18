@@ -8,37 +8,37 @@
           :when (not (and (= x x-cell) (= y y-cell)))] 
       [x y])))
 
-(defn num-alive-neighbors [cell cells]
+(defn num-neighbors-being-a-cell [cell cells]
   (count (filter (neighbors cell) cells)))
 
-(defn will-survive? [num-alive-neighbors]
-  (or (= num-alive-neighbors 3)
-      (= num-alive-neighbors 2)))
+(defn will-go-on-being-a-cell? [num-neighbors-being-a-cell]
+  (or (= num-neighbors-being-a-cell 3)
+      (= num-neighbors-being-a-cell 2)))
 
-(defn will-come-to-life? [num-alive-neighbors]
-  (= num-alive-neighbors 3))
+(defn will-be-a-cell? [num-neighbors-being-a-cell]
+  (= num-neighbors-being-a-cell 3))
 
-(defn candidates-to-come-to-life [cells]
+(defn candidates-to-be-cell [cells]
   (clojure.set/difference 
     (reduce clojure.set/union 
             (map neighbors cells))
     (set cells)))
 
-(defn surviving-cells [cells]
+(defn keep-being-cells [cells]
   (set 
     (filter 
-      #(will-survive? 
-         (num-alive-neighbors % cells)) 
+      #(will-go-on-being-a-cell? 
+         (num-neighbors-being-a-cell % cells)) 
       cells)))
 
-(defn come-to-life-cells [cells]
+(defn new-cells [cells]
   (set 
     (filter 
-      #(will-come-to-life?
-         (num-alive-neighbors % cells))
-      (candidates-to-come-to-life cells))))
+      #(will-be-a-cell?
+         (num-neighbors-being-a-cell % cells))
+      (candidates-to-be-cell cells))))
 
 (defn next-cells [cells]
   (clojure.set/union 
-    (surviving-cells cells)
-    (come-to-life-cells cells)))
+    (keep-being-cells cells)
+    (new-cells cells)))
