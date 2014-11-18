@@ -19,5 +19,6 @@
              (num-alive-neighbors [10 20] [[1 2] [1 1] [1 3]]) => 0)
        
        (fact "a cell with enough living neighbors will survive"
-             (will-survive? 3) => true)
+             (will-survive? 3) => true
+             (will-survive? 1) => false)
        )
