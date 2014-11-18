@@ -16,3 +16,6 @@
 (defn will-survive? [num-alive-neighbors]
   (or (= num-alive-neighbors 3)
       (= num-alive-neighbors 2)))
+
+(defn will-come-to-life? [num-alive-neighbors]
+  (= num-alive-neighbors 3))
