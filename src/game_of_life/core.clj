@@ -34,5 +34,8 @@
     living-cells))
 
 (defn come-to-life-cells [living-cells]
-  [])
+  (filter 
+    #(will-come-to-life?
+       (num-alive-neighbors % living-cells))
+    (candidates-to-come-to-life living-cells)))
   

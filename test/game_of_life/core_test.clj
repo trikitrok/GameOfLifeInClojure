@@ -58,12 +58,20 @@
   (facts 
     "about surviving cells in next generation"
     
-    (fact "the surviving cells are the living cells with enough neighbors"
-          (surviving-cells []) => []
-          (surviving-cells [[2 2][0 0] [1 1] [-1 -1]]) => [[0 0] [1 1]]))
+    (fact "no surviving cells when there are no living cells"
+          (surviving-cells []) => [])
+    
+    (fact "no surviving cells because they do not have enough living neighbors"
+          (surviving-cells [[2 2] [1 1]]) => [])
+        
+    (fact "the surviving cells are the living cells with just enough neighbors"
+          (surviving-cells [[2 2] [0 0] [1 1] [-1 -1]]) => [[0 0] [1 1]])
+          (surviving-cells [[0 0] [0 1] [1 0] [1 1]]) => [[0 0] [0 1] [1 0] [1 1]])
   
   (facts 
     "about cells that come to life in next generation"
     
-    (fact "the surviving cells are the living cells with enough neighbors"
-          (come-to-life-cells []) => [])))
+    (fact "the cells that come to life are neighbors of the living cells with enough neighbors"
+          (come-to-life-cells []) => []
+          (set (come-to-life-cells [[2 2] [0 0] [1 1] [-1 -1] [1 0]])) => (set [[0 1] [0 -1] [2 1]])
+          (come-to-life-cells [[0 1] [1 0] [1 1]]) => [[0 0]])))
