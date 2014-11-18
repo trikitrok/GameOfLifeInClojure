@@ -15,5 +15,6 @@
        
        (fact "we can know how many living neighbors a cell has"
              (num-alive-neighbors [1 2] [[1 2] [4 5] [1 3]]) => 1
-             (num-alive-neighbors [1 2] [[1 2] [1 1] [1 3]]) => 2)
+             (num-alive-neighbors [1 2] [[1 2] [1 1] [1 3]]) => 2
+             (num-alive-neighbors [10 20] [[1 2] [1 1] [1 3]]) => 0)
        )
