@@ -28,5 +28,11 @@
     (set living-cells)))
 
 (defn surviving-cells [living-cells]
-  (filter #(will-survive? 
-             (num-alive-neighbors % living-cells)) living-cells))
+  (filter 
+    #(will-survive? 
+       (num-alive-neighbors % living-cells)) 
+    living-cells))
+
+(defn come-to-life-cells [living-cells]
+  [])
+  
