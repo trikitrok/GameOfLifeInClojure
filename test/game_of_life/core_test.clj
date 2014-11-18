@@ -48,7 +48,9 @@
     "about candidates to come to life in next generation"
     
     (fact "the candidates are the living cells neighbors"
-          (candidates []) => #{}
-          (candidates [[1 1]]) => #{[0 0] [0 1] [0 2] [1 0] [1 2] [2 0] [2 1] [2 2]}
-          (candidates [[1 1] [0 0]]) => #{[0 1] [0 2] [1 0] [1 2] [2 0] [2 1] [2 2] 
-                                          [-1 -1] [-1 0] [-1 1] [0 -1] [1 -1] })))
+          (candidates-to-come-to-life []) => #{}
+          (candidates-to-come-to-life [[1 1]]) => #{[0 0] [0 1] [0 2] [1 0] [1 2] [2 0] [2 1] [2 2]})
+    
+    (fact "no living cells are included in the candidates"
+          (candidates-to-come-to-life [[1 1] [0 0]]) => #{[0 1] [0 2] [1 0] [1 2] [2 0] [2 1] [2 2] 
+                                                          [-1 -1] [-1 0] [-1 1] [0 -1] [1 -1] })))
