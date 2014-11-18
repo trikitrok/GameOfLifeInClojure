@@ -4,4 +4,8 @@
   (= cell (some #{cell} living-cells)))
 
 (defn neighbors [cell]
-  #{[0 0] [0 1] [0 2] [1 0] [1 2] [2 0] [2 1] [2 2]})
+  (set 
+    (for [x (range 3) 
+          y (range 3) 
+          :when (not (and (= x 1) (= y 1)))] 
+      [x y])))
