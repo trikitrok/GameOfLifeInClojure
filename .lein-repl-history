@@ -1,0 +1,4 @@
+(some #{[1 2]} [[12 3] [4 5]])
+(some #{[4 5]} [[12 3] [4 5]])
+(require 'game-of-life.core)
+(game-of-life.core/is-alive? [4 5] [[12 3] [4 5]])
