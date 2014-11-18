@@ -21,7 +21,7 @@
 (defn will-come-to-life? [num-alive-neighbors]
   (= num-alive-neighbors 3))
 
-(defn candidates [living-cells]
+(defn candidates-to-come-to-life [living-cells]
   (clojure.set/difference 
     (reduce clojure.set/union 
             (map neighbors living-cells))
