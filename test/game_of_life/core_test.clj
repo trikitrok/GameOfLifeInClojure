@@ -6,7 +6,7 @@
   "about Game of Life"
   
   (facts 
-    "about cells neighbors"
+    "about neighbors"
     
     (fact 
       "we can know the neighbors of a location"
@@ -14,7 +14,7 @@
       (neighbors [0 0]) => #{[-1 -1] [-1 0] [-1 1] [0 -1] [0 1] [1 -1] [1 0] [1 1]})
     
     (fact 
-      "we can know how many neighbors have a cell"
+      "we can know how many neighbors of a location have a cell"
       (num-neighbors-with-a-cell [1 2] [[1 2] [4 5] [1 3]]) => 1
       (num-neighbors-with-a-cell [1 2] [[1 2] [1 1] [1 3]]) => 2
       (num-neighbors-with-a-cell [10 20] [[1 2] [1 1] [1 3]]) => 0))
@@ -32,7 +32,7 @@
     
     (fact 
       "a location without a cell will have a cell in next generation 
-      if it has 2 neighbors"
+      if it has 3 neighbors"
       (will-have-cell? [1 2] [[1 1] [1 3]]) => false
       (will-have-cell? [1 2] [[1 1] [1 3] [2 2]]) => true
       (will-have-cell? [1 2] [[1 1]]) => false))
