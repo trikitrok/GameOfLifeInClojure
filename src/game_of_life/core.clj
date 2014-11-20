@@ -12,7 +12,7 @@
   (count (filter (neighbors cell) cells)))
 
 (defn will-have-a-cell? [loc cells]
-  true)
+  (= (num-neighbors-being-a-cell loc cells) 2))
 
 (defn will-go-on-being-a-cell? [num-neighbors-being-a-cell]
   (or (= num-neighbors-being-a-cell 3)
