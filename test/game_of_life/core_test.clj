@@ -25,7 +25,8 @@
     (fact 
       "a location with a cell will have a cell in next generation if it has the right number of neighbors"
       (will-have-a-cell? [1 2] [[1 2] [1 1] [1 3]]) => true
-      (will-have-a-cell? [1 2] [[1 2] [1 1]]) => false)
+      (will-have-a-cell? [1 2] [[1 2] [1 1]]) => false
+      (will-have-a-cell? [1 2] [[1 2] [1 1] [1 3] [2 2]]) => true)
     
     (fact 
       "a cell with enough neighbors with cells will go on being a cell in the next generation"
