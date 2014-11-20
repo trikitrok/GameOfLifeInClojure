@@ -43,7 +43,5 @@
     (keep-being-cells cells)
     (new-cells cells)))
 
-(defn game-of-life [cells iterations]
-  (if (zero? iterations)
-    cells
-    (recur (next-cells cells) (dec iterations))))
+(defn game-of-life [cells num-iter]
+  (take num-iter (iterate next-cells cells)))
