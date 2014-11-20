@@ -11,11 +11,14 @@
 (defn num-neighbors-being-a-cell [cell cells]
   (count (filter (neighbors cell) cells)))
 
+(defn has-cell? [loc cells] 
+  (= loc (some #{loc} cells)))
+
 (defn will-have-a-cell? [loc cells]
   (let [num-neighbors (num-neighbors-being-a-cell loc cells)]
-    (or (and (some #{loc} cells) 
-             (= num-neighbors 2))
-        (= num-neighbors 3))))
+    (or (= num-neighbors 3)
+        (and (= num-neighbors 2)
+             (has-cell? loc cells)))))
 
 (defn will-go-on-being-a-cell? [num-neighbors-being-a-cell]
   (or (= num-neighbors-being-a-cell 3)
