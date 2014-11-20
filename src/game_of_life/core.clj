@@ -13,7 +13,7 @@
 (defn has-cell? [loc cells] 
   (= loc (some #{loc} cells)))
 
-(defn will-have-a-cell? [loc cells]
+(defn will-have-cell? [loc cells]
   (let [num-neighbors (num-neighbors-with-a-cell loc cells)]
     (or (= num-neighbors 3)
         (and (= num-neighbors 2)
@@ -23,7 +23,7 @@
   (reduce clojure.set/union (map neighbors cells)))
 
 (defn next-cells [cells]
-  (set (filter #(will-have-a-cell? % cells) (locations cells))))
+  (set (filter #(will-have-cell? % cells) (locations cells))))
 
 (defn game-of-life [cells num-iter]
   (take num-iter (iterate next-cells cells)))

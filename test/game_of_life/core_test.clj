@@ -24,45 +24,16 @@
     
     (fact 
       "a location with a cell will have a cell in next generation if it has the right number of neighbors"
-      (will-have-a-cell? [1 2] [[1 2] [1 1] [1 3]]) => true
-      (will-have-a-cell? [1 2] [[1 2] [1 1]]) => false
-      (will-have-a-cell? [1 2] [[1 2] [1 1] [1 3] [2 2]]) => true
-      (will-have-a-cell? [1 2] [[1 2] [0 2] [1 1] [1 3] [2 2]]) => false)
+      (will-have-cell? [1 2] [[1 2] [1 1] [1 3]]) => true
+      (will-have-cell? [1 2] [[1 2] [1 1]]) => false
+      (will-have-cell? [1 2] [[1 2] [1 1] [1 3] [2 2]]) => true
+      (will-have-cell? [1 2] [[1 2] [0 2] [1 1] [1 3] [2 2]]) => false)
     
     (fact 
       "a location without a cell will have a cell in next generation if it has the right number of neighbors"
-      (will-have-a-cell? [1 2] [[1 1] [1 3]]) => false
-      (will-have-a-cell? [1 2] [[1 1] [1 3] [2 2]]) => true
-      (will-have-a-cell? [1 2] [[1 1]]) => false))
-  
-  (facts
-    "about candidates to be a cell in next generation"
-    
-    (fact 
-      "the candidates are the cells neighbors"
-      (candidates-to-be-a-cell []) => #{}
-      (candidates-to-be-a-cell [[1 1]]) => #{[0 0] [0 1] [0 2] [1 0] [1 2] [2 0] [2 1] [2 2]})
-    
-    (fact 
-      "no cells are included in the candidates"
-      (candidates-to-be-a-cell [[1 1] [0 0]]) => #{[0 1] [0 2] [1 0] [1 2] [2 0] [2 1] [2 2] 
-                                                   [-1 -1] [-1 0] [-1 1] [0 -1] [1 -1] }))
-  
-  (facts 
-    "about cells keep being cells in next generation"
-    
-    (fact 
-      "no cells keep being cells when there are no cells"
-      (keep-being-cells []) => #{})
-    
-    (fact 
-      "no cells keep being cells because they do not have enough neighbors that are cells"
-      (keep-being-cells [[2 2] [1 1]]) => #{})
-    
-    (fact 
-      "the cells keep being cells are the cells with just enough neighbors that are cells"
-      (keep-being-cells [[2 2] [0 0] [1 1] [-1 -1]]) => #{[0 0] [1 1]}
-      (keep-being-cells [[0 0] [0 1] [1 0] [1 1]]) => #{[0 0] [0 1] [1 0] [1 1]}))
+      (will-have-cell? [1 2] [[1 1] [1 3]]) => false
+      (will-have-cell? [1 2] [[1 1] [1 3] [2 2]]) => true
+      (will-have-cell? [1 2] [[1 1]]) => false))
   
   (facts
     "about Still lifes"
