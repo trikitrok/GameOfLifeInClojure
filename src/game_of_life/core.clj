@@ -2,11 +2,10 @@
   (:require [clojure.set :only [union difference]]))
 
 (defn neighbors [[x-cell y-cell]]
-  (set 
-    (for [x (range (dec x-cell) (+ x-cell 2)) 
-          y (range (dec y-cell) (+ y-cell 2)) 
-          :when (not (and (= x x-cell) (= y y-cell)))] 
-      [x y])))
+  (set (for [x (range (dec x-cell) (+ x-cell 2)) 
+             y (range (dec y-cell) (+ y-cell 2)) 
+             :when (not (and (= x x-cell) (= y y-cell)))] 
+         [x y])))
 
 (defn num-neighbors-with-a-cell [loc cells]
   (count (filter (neighbors loc) cells)))
@@ -24,8 +23,7 @@
   (reduce clojure.set/union (map neighbors cells)))
 
 (defn next-cells [cells]
-  (set (filter #(will-have-a-cell? % cells)
-               (locations cells))))
+  (set (filter #(will-have-a-cell? % cells) (locations cells))))
 
 (defn game-of-life [cells num-iter]
   (take num-iter (iterate next-cells cells)))
