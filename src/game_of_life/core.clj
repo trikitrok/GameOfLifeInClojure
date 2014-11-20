@@ -1,5 +1,4 @@
-(ns game-of-life.core
-  (:require [clojure.set :only [union difference]]))
+(ns game-of-life.core)
 
 (defn neighbors [[x-cell y-cell]]
   (set (for [x (range (dec x-cell) (+ x-cell 2)) 
