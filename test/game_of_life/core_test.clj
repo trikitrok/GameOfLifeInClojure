@@ -64,23 +64,6 @@
       (keep-being-cells [[2 2] [0 0] [1 1] [-1 -1]]) => #{[0 0] [1 1]}
       (keep-being-cells [[0 0] [0 1] [1 0] [1 1]]) => #{[0 0] [0 1] [1 0] [1 1]}))
   
-  (facts 
-    "about new cells in next generation"
-    
-    (fact 
-      "the new cells are neighbors of the cells with enough neighbors that are cells"
-      (new-cells []) => #{}
-      (new-cells [[2 2] [0 0] [1 1] [-1 -1] [1 0]]) => #{[0 1] [0 -1] [2 1]}
-      (new-cells [[0 1] [1 0] [1 1]]) => #{[0 0]}))
-  (facts 
-    "about next generation cells"
-    
-    (fact 
-      "the next generation cells are the union of the cells that keep being cells and the new cells"
-      (next-cells []) => #{}
-      (next-cells [[2 2] [0 0] [1 1] [-1 -1] [1 0]]) => #{[0 1] [0 -1] [2 1] [1 0] [0 0] [1 1]}
-      (next-cells [[0 1] [1 0] [1 1]]) => #{[0 0] [0 1] [1 0] [1 1]}))
-  
   (facts
     "about Still lifes"
     
