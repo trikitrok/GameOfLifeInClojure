@@ -23,14 +23,16 @@
     "about game of life rules"
     
     (fact 
-      "a location with a cell will have a cell in next generation if it has the right number of neighbors"
+      "a location with a cell will have a cell in next generation 
+      if it has 2 or 3 neighbors"
       (will-have-cell? [1 2] [[1 2] [1 1] [1 3]]) => true
       (will-have-cell? [1 2] [[1 2] [1 1]]) => false
       (will-have-cell? [1 2] [[1 2] [1 1] [1 3] [2 2]]) => true
       (will-have-cell? [1 2] [[1 2] [0 2] [1 1] [1 3] [2 2]]) => false)
     
     (fact 
-      "a location without a cell will have a cell in next generation if it has the right number of neighbors"
+      "a location without a cell will have a cell in next generation 
+      if it has 2 neighbors"
       (will-have-cell? [1 2] [[1 1] [1 3]]) => false
       (will-have-cell? [1 2] [[1 1] [1 3] [2 2]]) => true
       (will-have-cell? [1 2] [[1 1]]) => false))
@@ -80,6 +82,7 @@
   
   (facts
     "about Oscillators"
+    
     (fact 
       "a Blinker oscillates with period two 
       (http://en.wikipedia.org/wiki/File:Game_of_life_blinker.gif)"
@@ -104,6 +107,7 @@
   
   (facts
     "about Gliders"
+    
     (fact 
       "a Glider moves diagonally with period 4 
       (http://en.wikipedia.org/wiki/File:Game_of_life_animated_glider.gif)"
