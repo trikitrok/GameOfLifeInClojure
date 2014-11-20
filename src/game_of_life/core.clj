@@ -20,15 +20,12 @@
         (and (= num-neighbors 2)
              (has-cell? loc cells)))))
 
-(defn all-neighbors-locations [cells]
-  (reduce clojure.set/union 
-            (map neighbors cells)))
+(defn locations [cells]
+  (reduce clojure.set/union (map neighbors cells)))
 
 (defn next-cells [cells]
-  (set 
-    (filter 
-      #(will-have-a-cell? % cells)
-      (all-neighbors-locations cells))))
+  (set (filter #(will-have-a-cell? % cells)
+               (locations cells))))
 
 (defn game-of-life [cells num-iter]
   (take num-iter (iterate next-cells cells)))
