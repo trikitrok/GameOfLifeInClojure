@@ -9,12 +9,12 @@
     "about neighbors"
     
     (fact 
-      "we can know the neighbors of a location"
+      "the neighbors of a given location can be known"
       (neighbors [1 1]) => #{[0 0] [0 1] [0 2] [1 0] [1 2] [2 0] [2 1] [2 2]}
       (neighbors [0 0]) => #{[-1 -1] [-1 0] [-1 1] [0 -1] [0 1] [1 -1] [1 0] [1 1]})
     
     (fact 
-      "we can know how many neighbors of a location have a cell"
+      "the number of neighbors of a given location which have a cell can be known"
       (num-neighbors-with-a-cell [1 2] [[1 2] [4 5] [1 3]]) => 1
       (num-neighbors-with-a-cell [1 2] [[1 2] [1 1] [1 3]]) => 2
       (num-neighbors-with-a-cell [10 20] [[1 2] [1 1] [1 3]]) => 0))
