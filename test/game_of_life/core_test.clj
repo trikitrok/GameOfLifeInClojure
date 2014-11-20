@@ -33,26 +33,7 @@
       "a location without a cell will have a cell in next generation if it has the right number of neighbors"
       (will-have-a-cell? [1 2] [[1 1] [1 3]]) => false
       (will-have-a-cell? [1 2] [[1 1] [1 3] [2 2]]) => true
-      (will-have-a-cell? [1 2] [[1 1]]) => false)
-    
-    (fact 
-      "a cell with enough neighbors with cells will go on being a cell in the next generation"
-      (will-go-on-being-a-cell? 3) => true
-      (will-go-on-being-a-cell? 2) => true)
-    
-    (fact 
-      "a cell with too few neighbors with cells will not go on being a cell in the next generation"
-      (will-go-on-being-a-cell? 1) => false)
-    
-    (fact 
-      "a cell with too many neighbors with cells will not go on being a cell in the next generation"
-      (will-go-on-being-a-cell? 4) => false)
-    
-    (fact 
-      "a candidate with the right amount of neighbors with cells will be a cell in the next generation"
-      (will-be-a-cell? 3) => true
-      (will-be-a-cell? 4) => false
-      (will-be-a-cell? 2) => false))
+      (will-have-a-cell? [1 2] [[1 1]]) => false))
   
   (facts
     "about candidates to be a cell in next generation"

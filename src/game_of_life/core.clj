@@ -20,13 +20,6 @@
         (and (= num-neighbors 2)
              (has-cell? loc cells)))))
 
-(defn will-go-on-being-a-cell? [num-neighbors-being-a-cell]
-  (or (= num-neighbors-being-a-cell 3)
-      (= num-neighbors-being-a-cell 2)))
-
-(defn will-be-a-cell? [num-neighbors-being-a-cell]
-  (= num-neighbors-being-a-cell 3))
-
 (defn candidates-to-be-a-cell [cells]
   (clojure.set/difference 
     (reduce clojure.set/union 
@@ -36,15 +29,13 @@
 (defn keep-being-cells [cells]
   (set 
     (filter 
-      #(will-go-on-being-a-cell? 
-         (num-neighbors-being-a-cell % cells)) 
+      #(will-have-a-cell? % cells)
       cells)))
 
 (defn new-cells [cells]
   (set 
     (filter 
-      #(will-be-a-cell?
-         (num-neighbors-being-a-cell % cells))
+      #(will-have-a-cell? % cells)
       (candidates-to-be-a-cell cells))))
 
 (defn next-cells [cells]
