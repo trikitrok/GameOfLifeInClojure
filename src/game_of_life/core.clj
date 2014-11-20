@@ -8,14 +8,14 @@
           :when (not (and (= x x-cell) (= y y-cell)))] 
       [x y])))
 
-(defn num-neighbors-being-a-cell [cell cells]
-  (count (filter (neighbors cell) cells)))
+(defn num-neighbors-with-a-cell [loc cells]
+  (count (filter (neighbors loc) cells)))
 
 (defn has-cell? [loc cells] 
   (= loc (some #{loc} cells)))
 
 (defn will-have-a-cell? [loc cells]
-  (let [num-neighbors (num-neighbors-being-a-cell loc cells)]
+  (let [num-neighbors (num-neighbors-with-a-cell loc cells)]
     (or (= num-neighbors 3)
         (and (= num-neighbors 2)
              (has-cell? loc cells)))))

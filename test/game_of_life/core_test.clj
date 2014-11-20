@@ -15,9 +15,9 @@
     
     (fact 
       "we can know how many neighbors are a cell"
-      (num-neighbors-being-a-cell [1 2] [[1 2] [4 5] [1 3]]) => 1
-      (num-neighbors-being-a-cell [1 2] [[1 2] [1 1] [1 3]]) => 2
-      (num-neighbors-being-a-cell [10 20] [[1 2] [1 1] [1 3]]) => 0))
+      (num-neighbors-with-a-cell [1 2] [[1 2] [4 5] [1 3]]) => 1
+      (num-neighbors-with-a-cell [1 2] [[1 2] [1 1] [1 3]]) => 2
+      (num-neighbors-with-a-cell [10 20] [[1 2] [1 1] [1 3]]) => 0))
   
   (facts 
     "about game of life rules"
